@@ -1,4 +1,34 @@
-<footer class="page-footer abrown-footer">
+<footer id="footer" class="footer bg-white">
+    <div class="inner">
+        <div class="footer-meta">
+            <div class="footer-container">
+                <div class="meta-item meta-copyright">
+                    <div class="meta-copyright-info">
+                        <div class="info-text">
+                            <p>&copy;<?php echo $site_name ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="js-content">
+        <script>
+            document.getElementById("backTop").setAttribute("style","display:none;");
+            window.addEventListener("scroll", backtop_change);
+            function backtop_change(){
+                var toph = document.documentElement.scrollTop;
+                // console.log(toph);
+                if(toph<50) document.getElementById("backTop").setAttribute("style","display:none;");
+                else document.getElementById("backTop").setAttribute("style","display:block;");
+            }
+        </script>
+    </div>
+</footer>
+
+
+
+<!-- <footer class="page-footer abrown-footer">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
@@ -24,7 +54,7 @@
     </div>
 </footer>
 
-<!--Import jQuery before materialize.js-->
+Import jQuery before materialize.js
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/ning.min.js"></script>
+<script type="text/javascript" src="js/ning.min.js"></script> -->

@@ -2,10 +2,14 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #f7f7f7;
 }
 
 main {
     flex: 1 0 auto;
+    margin: 0 auto;
+    max-width: 1190px;
+    margin-bottom: 150px;
 }
 
 /* 美团header样式 */
@@ -289,6 +293,10 @@ button {
     border: 1px solid #1111 !important;
 }
 
+.sub-link a{
+    color: #333 !important;
+}
+
 .sub-link:hover{
     background-color: #fafafa;
 }
@@ -302,10 +310,14 @@ button {
 .login-wrap {
     height: 510px;
     padding-left: 818px;
-    background: url(https://www.dpfile.com/app/app-pc-account/images/login-bg-0e02c95f.png) 96px 47px no-repeat #f7f7f7;
+    /* background: url(../image/base_img/ashley-byrd-Pv6t-Y3u6uY-unsplash.jpg) 96px 47px no-repeat #f7f7f7; */
+    background: url(../image/base_img/ashley-byrd-Pv6t-Y3u6uY-unsplash.jpg) no-repeat #f7f7f7;
     -webkit-background-size: 634px 442px;
     -moz-background-size: 634px 442px;
-    background-size: 634px 442px
+    /* background-size: 634px 442px; */
+    background-size: cover;
+    /* background-blend-mode: luminosity; */
+    background-position: center;
 }
 
 .login-wrap .mid-out {
@@ -393,4 +405,31 @@ button {
 .login-wrap .other-login .other .other-login-list a {
     display: block;
     width: 86px
+}
+
+/* 首页搜索框 */
+.search {
+    /* padding-top: 70px; */
+    height: 300px;
+    /* background-color: antiquewhite; */
+    text-align: center;
+    background: url(../index-search-img.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.search-box{
+    position: relative;
+}
+
+.search-bar{
+    /* position: absolute;
+    margin: 64px 0 50px 30%; */
+    margin: 120px 0;
+    margin-right: 120px;
+}
+
+/* 首页展示区域 */
+.foods-content{
+    margin: 0 auto;
 }

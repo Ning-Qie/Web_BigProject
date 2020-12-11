@@ -10,7 +10,7 @@
         <div class="login-wrap">
             <div class="mid-out">
                 <div class="mid-in" id="J_login_container" 
-                    style="width:290px;height:345.5px;border:1px solid #ebebeb;background:#fff;padding:5px 0;">
+                    style="width:290px;height:345.5px;border:1px solid #ebebeb;background:#ffffffe0;padding:5px 0;">
                     <div class="login-section">
                         <form >
                             <div class="form-field form-field--icon phone-input-wrapper">

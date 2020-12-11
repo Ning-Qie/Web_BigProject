@@ -82,3 +82,231 @@ input, select, textarea {
     font-size: inherit;
     font-weight: inherit;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-container input {
+    width: 380px;
+    height: 14px;
+    padding: 9px;
+    border: 2px solid #8db596;
+    text-indent: 22px;
+    outline: 0;
+    box-sizing: content-box;
+    font: 12px/1.5 arial,sans-serif;
+}
+#i-search {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #8db5967a;
+}
+.search-bnt-panel .search-btn {
+    display: inline-block;
+    padding: 10px;
+    height: 16px;
+    line-height: 16px;
+    width: 100px;
+    background-color: #8db596;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+.search-bnt-panel {
+    display: inline-block;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.zhenguo-container {
+    position: relative;
+}
+.minsu-ls-view {
+    margin-top: -40px;
+    padding: 53px;
+    /* padding-right: 0; */
+    /* padding-bottom: 0; */
+    border: 1px solid #E5E5E5;
+    /* border-top: 0px; */
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #fff;
+    border-radius: 10px;
+}
+.minsu-ls-view .products {
+    display: flex;
+    flex-wrap: wrap;
+    height: -webkit-fill-available;
+}
+.minsu-ls-view .minsu-item {
+    float: left;
+    margin: auto;
+}
+.minsu-ls-view .minsu-item .product-card-header {
+    position: relative;
+}
+.minsu-ls-view .minsu-item .product-card-header .product-img {
+    width: 370px;
+    height: 208px;
+    border-radius: 10px;
+    /* background: url(//p0.meituan.net/travelcube/214b841….png); */
+    background-size: cover;
+    background-position: 50%;
+    max-width: 100%;
+    height: 208px;
+    margin-bottom: 11px;
+    cursor: pointer;
+    position: relative;
+}
+img {
+    border: 2px solid #FFFFFF;
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    bottom: -12px;
+    right: 15px;
+    z-index: 9;
+    border-radius: 40px;
+    background-image: url(https://p0.meituan.net/mmc/35ad1f9….png);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.minsu-ls-view .minsu-item .product-info {
+    text-align: left;
+    padding-bottom: 25px;
+}
+.minsu-ls-view .minsu-item .product-info .product-title {
+    font-size: 16px;
+    color: #222222;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 7px 0;
+    font-weight: 400;
+    width: 297px;
+}
+.minsu-ls-view .minsu-item .product-info .product-title{
+    font-size: 16px;
+    color: #222222;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 7px 0;
+    font-weight: 400;
+    width:297px;
+}
+.minsu-ls-view .minsu-item .product-info .sub-title{
+    font-size: 12px;
+    color: #999999;
+    text-align:left;
+}
+.minsu-ls-view .minsu-item .product-info .price{
+    font-weight:500;
+    font-size: 22px;
+    color: #FF6600;
+    letter-spacing: -0.8px;
+    padding:4px 0;
+}
+.minsu-ls-view .minsu-item .product-info .price .price-icon{
+        font-size:14px;
+    }
+
+
+
+
+
+
+
+
+.footer {
+    text-align: center;
+    box-shadow: 0 4px 10px 10px rgba(0, 0, 0, .05);
+}
+.footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+.bg-white {
+    background-color: #fff!important;
+}
+.inner {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.footer-meta {
+    padding: 50px 0 0;
+    list-style: none
+}
+
+.footer-meta .footer-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 80px
+}
+
+.footer-meta .meta-item {
+    position: relative;
+    float: none;
+    width: 50%;
+    min-height: 1px;
+    padding: 0 30px;
+    margin: auto;
+}
+
+.footer-meta .meta-copyright .info-text p {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0;
+    color: #767676
+}
+
+.footer-meta .meta-copyright .info-text a {
+    color: #eb5055
+}
