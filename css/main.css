@@ -1,0 +1,396 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* 美团header样式 */
+.csr-header {
+    height: 70px;
+    width: 100%;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .06);
+    background-color: #fff;
+    opacity: 1;
+    top: 0;
+    z-index: 99999999
+}
+
+.csr-header .header-content {
+    height: 100%;
+    width: 990px;
+    position: relative;
+    margin: 0 auto
+}
+
+.csr-header .header-content,
+.csr-header .header-content #left {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.csr-header .header-content #left {
+    -ms-flex-pack: center;
+    justify-content: center;
+    /* background: url(//s3plus.meituan.net/v1/mss_4067b040e3364072a20737a5254654ea/waimai-cfe-custom-pc-08ddc77d/production/assets/header-logo-black-64a1f182be.png) no-repeat; */
+    background-size: 100%;
+    width: 163px;
+    height: 48px;
+    cursor: pointer
+}
+
+.csr-header .header-content #right {
+    margin-left: 300px;
+    height: 100%
+}
+
+.csr-header .header-content #right ul {
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    font-size: 16px;
+    font-family: PingFangSC-Regular, Microsoft Yahei, Arial, Helvetica, sans-serif;
+    line-height: 16px
+}
+
+.csr-header .header-content #right ul li {
+    height: 67px;
+    margin-left: 40px;
+    box-sizing: content-box;
+    top: 0;
+    cursor: pointer;
+    width: max-content;
+}
+
+.csr-header .header-content #right ul li a:active,
+.csr-header .header-content #right ul li a:hover,
+.csr-header .header-content #right ul li a:link,
+.csr-header .header-content #right ul li a:visited {
+    text-decoration: none;
+    color: #333
+}
+
+.csr-header .header-content #right ul li a {
+    box-sizing: content-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 auto;
+    text-decoration: none;
+    color: #333
+}
+
+.csr-header .header-content #right ul li:hover {
+    border-bottom: 3px solid #3e978b;
+    font-weight: 700
+}
+
+.csr-header.csr-header-transparent {
+    background-color: transparent;
+    box-shadow: none
+}
+
+.csr-header.csr-header-transparent .header-content #left {
+    /* background-image: url(//s3plus.meituan.net/v1/mss_4067b040e3364072a20737a5254654ea/waimai-cfe-custom-pc-08ddc77d/production/assets/header-logo-white-50ca261907.png); */
+    background-size: 100%
+}
+
+.csr-header.csr-header-transparent .header-content #right ul li a {
+    color: #fff
+}
+
+.active {
+    font-weight: 700;
+    box-sizing: border-box
+}
+.active {
+    font-family: PingFangSC-Semibold,Microsoft Yahei,Arial,Helvetica,sans-serif;
+    border-bottom: 3px solid #3e978b;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    -webkit-text-size-adjust: none
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+    font-family: inherit
+}
+
+body,
+button,
+dd,
+dl,
+dt,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+input,
+ol,
+p,
+textarea,
+ul {
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 0;
+    margin: 0
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1em
+}
+
+ol,
+ul {
+    padding-left: 0;
+    list-style-type: none
+}
+
+img {
+    border: 0
+}
+
+a {
+    text-decoration: none;
+    outline: none
+}
+
+input,
+textarea {
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 0
+}
+
+i {
+    font-style: normal
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none
+}
+
+
+/* 回到顶部悬浮按钮 */
+.top-scroll {
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+}
+
+.top-scroll .btn-floating {
+    background: #2ec1ac;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-floating i {
+    width: inherit;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 40px;
+    font-size: 1.2rem !important;
+}
+
+/* 导航栏图标 */
+#links i {
+    padding: 15px 10px 10px 0px;
+}
+
+#links a:hover i {
+    color: #3e978b;
+}
+
+/* 导航栏二级菜单 */
+.sub-links{
+    position: relative;
+}
+
+.sub-link-list{
+    position: absolute;
+    /* display: block; */
+    display: none;
+}
+
+#sub-links-0:hover #header-link-0,
+#sub-links-1:hover #header-link-1,
+#sub-links-2:hover #header-link-2,
+#sub-links-3:hover #header-link-3,
+#sub-links-4:hover #header-link-4,
+#sub-links-5:hover #header-link-5
+{
+    /* 一级菜单查看时样式 */
+    border-bottom: 3px solid #3e978b;
+    font-weight: 700
+}
+
+#sub-links-0:hover #header-link-0 i,
+#sub-links-1:hover #header-link-1 i,
+#sub-links-2:hover #header-link-2 i,
+#sub-links-3:hover #header-link-3 i,
+#sub-links-4:hover #header-link-4 i,
+#sub-links-5:hover #header-link-5 i
+{
+    color: #3e978b;
+}
+
+
+#sub-links-0:hover #sub-link-list-0,
+#sub-links-1:hover #sub-link-list-1,
+#sub-links-2:hover #sub-link-list-2,
+#sub-links-3:hover #sub-link-list-3,
+#sub-links-4:hover #sub-link-list-4,
+#sub-links-5:hover #sub-link-list-5{
+    display: block !important;
+}
+
+.sub-link{
+    display: -webkit-inline-box;
+    background-color: white;
+    width: -webkit-fill-available !important;
+    height: fit-content !important;
+    padding: 15px 0;
+    border: 1px solid #1111 !important;
+}
+
+.sub-link:hover{
+    background-color: #fafafa;
+}
+
+/* 登录界面 */
+.login-main {
+    width: 1190px;
+    margin: auto;
+}
+
+.login-wrap {
+    height: 510px;
+    padding-left: 818px;
+    background: url(https://www.dpfile.com/app/app-pc-account/images/login-bg-0e02c95f.png) 96px 47px no-repeat #f7f7f7;
+    -webkit-background-size: 634px 442px;
+    -moz-background-size: 634px 442px;
+    background-size: 634px 442px
+}
+
+.login-wrap .mid-out {
+    position: relative;
+    zoom: 1;
+    height: 510px;
+    display: table-cell;
+    padding-top: 76px
+}
+
+.login-wrap .login-box {
+    position: relative;
+    width: 250px;
+    padding: 25px 0 30px 40px;
+    border: 1px solid #ebebeb;
+    background-color: #fff
+}
+
+.login-wrap .other-login {
+    position: relative;
+    width: 210px;
+    margin-top: 19px;
+    padding-top: 15px;
+    border-top: 1px dashed #d8d8d8
+}
+
+.login-wrap .other-login .btn-qq {
+    display: inline-block;
+    border: 1px solid #eaeaea;
+    padding: 0 12px 0 8px;
+    line-height: 31px;
+    height: 31px;
+    background-color: #fbfbfb;
+    color: #666
+}
+
+.login-wrap .other-login .btn-qq:hover {
+    background-color: #f1f1f1
+}
+
+.login-wrap .other-login .btn-qq i {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px
+}
+
+.login-wrap .other-login .other-login-btn {
+    position: relative;
+    z-index: 20;
+    display: inline-block;
+    padding: 0 7px 0 9px;
+    border: 1px solid #fff;
+    color: #999;
+    line-height: 31px;
+    text-decoration: none
+}
+
+.login-wrap .other-login .cur {
+    border-color: #d8d8d8 #d8d8d8 #fff
+}
+
+.login-wrap .other-login .other {
+    position: absolute;
+    right: 0;
+    top: 15px
+}
+
+.login-wrap .other-login .other a {
+    color: #666;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.login-wrap .other-login .other .other-login-list {
+    position: absolute;
+    left: -28px;
+    top: 32px;
+    width: 102px
+}
+
+.login-wrap .other-login .other .other-login-list a {
+    display: block;
+    width: 86px
+}

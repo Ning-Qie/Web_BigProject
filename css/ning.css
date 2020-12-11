@@ -1,101 +1,84 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Abel', sans-serif;
-    color: #846C63;
-    /* background-color: #F6F4F1!important; */
+.login-section {
+    margin: 15px;
+    width: 260px;
+}
+.login-section {
+    float: left;
+    padding-top: 25px;
 }
 
-main {
-    flex: 1 0 auto;
-}
-
-a {
-    color: #88AAA9!important;
-}
-
-/* header样式 */
-nav .nav-wrapper {
-    width: 90%;
-    margin: 0 auto;
-}
-.dropdown-content {
-    margin-top: 60px;
-}
-
-.abrown-footer {
-    background-color: rgba(189,177,173,0.1)!important;
-}
-footer.page-footer .footer-copyright {
+.login-section .phone-input-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    margin: 8px 0;
     overflow: hidden;
-    height: 50px;
-    line-height: 50px;
-    color: rgba(255,255,255,0.8);
-    background-color: rgba(51,51,51,0.08);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
 }
-
-/* 搜索框样式 */
-.search{
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 40px;
+.login-section .form-field {
+    padding-left: 0;
 }
-
-.search .search-bar .search-container .i-search {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAMAAAD+iNU2AAAAQlBMVEUAAADMzMzMzMzNzc3MzMzNzc3MzMzNzc3Nzc3f39/Nzc3MzMzV1dXNzc3Nzc3Ozs7Nzc3Nzc3Q0NDNzc3Ozs7X19dHxZMBAAAAFnRSTlMA/vLb2KRkQDcIzbkM7uQi4FZGLhoT1R31TAAAAGNJREFUCNdljlkSwCAIQwUVXLv3/lctOraO9n3gJE4gSvBkoyWvGs4ABgTjmgTN8rCGanijU/WTNiVCwC3HQDItqhe0MmL4dIjz/5yf94/397Ef5lNU778uWBp2fsa1ZTVwHw9EMgK6TERmmAAAAABJRU5ErkJggg==) no-repeat;
-    position: absolute;
-    left: 10px;
-    top: 10px;
+.form--stack .form-field {
+    padding-left: 0;
 }
-.search .search-bar {
-    margin-right: 20px;
-    margin-left: 0;
-}
-.search .search-bar {
+.form-field--icon {
     position: relative;
-    float: left;
-    margin-left: 80px;
-    margin-right: 80px;
-    height: 75px;
-    max-width: 800px;
 }
-
-
-.search .search-bar .search-container input {
-    width: 380px;
-    height: 14px;
-    padding: 9px;
-    border: 2px solid #f63;
-    text-indent: 22px;
-    outline: 0;
-    box-sizing: content-box;
-    font: 12px/1.5 arial,sans-serif;
-}
-
-.search .search-bar .search-container .search-bnt-panel {
-    display: inline-block;
+.form-field {
     position: relative;
-    left: -2px;
-    width: 250px;
+    padding: 8px 0 8px 110px;
+    zoom: 1;
 }
-
-.search .search-bar .search-container span {
-    float: left;
+.login-section .form-field .f-text {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    /* max-width: 200px!important; */
 }
-
-.search .search-bar .search-container .search-bnt-panel .search-btn {
+.login-section .form--stack .btn, .login-section .form--stack .btn-hot {
+    width: 100%;
+}
+.form--stack .btn {
+    width: 100%;
+}
+.btn {
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF2EC3B4', endColorstr='#FF2DB3A6');
+}
+.btn, .btn.active, .btn.hover, .btn:active, .btn:focus, .btn:hover {
+    color: #222;
+    background-image: linear-gradient(135deg,#3e978b 0,#3e978b 100%);
+    border-width: 0;
+    box-shadow: 0 2px 1px rgba(191,105,0,.15);
+    background-size: 100%;
+}
+.btn{
+    width:100%;
     display: inline-block;
-    padding: 10px;
-    height: 16px;
-    line-height: 16px;
-    width: 100px;
-    background-color: #f63;
-    cursor: pointer;
+    vertical-align: middle;
+    padding: 7px 20px 6px;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    letter-spacing: .1em;
     text-align: center;
-    color: #fff;
-    font-size: 16px;
+    text-decoration: none;
+    border-style: solid;
+    background-repeat: repeat-x;
+    border-radius: 2px;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }

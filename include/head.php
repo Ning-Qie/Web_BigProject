@@ -4,11 +4,8 @@
     <?php include "include/variable.php"?>
     <?php include "include/func.php"?>
     <link rel="icon" href="<?php echo $site_favicon ?>">
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="css/main.css">
     <link type="text/css" rel="stylesheet" href="css/ning.css">
+    <link type="text/css" rel="stylesheet" href="css/fontawesome-free-5.11.2/css/all.css">
+    <script type="text/javascript" src="js/main.js"></script>
 </head>

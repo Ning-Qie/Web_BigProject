@@ -7,8 +7,13 @@
     <?php include "include/header.php"?>
     <main>
     </main>
-    <?php include "include/footer.php"?>
+    <!-- <?php include "include/footer.php"?> -->
 </body>
+<div id="js-content">
+    <script>
+        header_link(2);
+    </script>
+</div>
 </html>
 
 

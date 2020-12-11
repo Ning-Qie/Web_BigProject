@@ -5,7 +5,8 @@
 
 <body>
     <?php include "include/header.php"?>
-    <main>
+    <?php include "include/top-scroll.php"?>
+    <main style="height: 10000px;">
         <div class="search">
             <div calss="search-box">
                 <div class="search-bar ">
@@ -22,6 +23,11 @@
             </div>
         </div>
     </main>
-    <?php include "include/footer.php"?>
 </body>
+<div id="js-content">
+    <script>
+        header_link(0);
+    </script>
+</div>
 </html>
+
