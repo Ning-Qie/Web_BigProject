@@ -66,7 +66,7 @@
 
 
 
-## 二、页面
+### 二、页面
 
 
 
@@ -136,4 +136,21 @@
 
 ![image-20201208151404315](C:%5CUsers%5C14254%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201208151404315.png)
 
+<<<<<<< HEAD
 ### 5.搜索页面【search.html】
+=======
+### 5.搜索页面【search.html】
+<<<<<<<< HEAD:README.md
+========
+
+
+
+## 三、数据库结构
+
+### 普通用户
+
+userid
+
+username
+>>>>>>>> 5b8442365c67764b6d6e5667f2d474119ce2b6dc:概述.md
+>>>>>>> 5b8442365c67764b6d6e5667f2d474119ce2b6dc
