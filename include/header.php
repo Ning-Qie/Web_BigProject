@@ -32,10 +32,10 @@
                         <div id="sub-link-list-3" class="sub-link-list">
                             <li class="sub-link"><a href="#!">个人信息</a></li>
                             <li class="sub-link"><a href="#!">我的订单</a></li>
-                            <li class="sub-link"><a href="ShopTrolley.php">我的餐车</a></li>
+                            <li class="sub-link"><a href="Trolley.php">我的餐车</a></li>
                         </div>
                     </div>
-                    <li id="header-link4"><a href="#!"><i class="fas fa-store-alt"></i>商户服务</a></li>
+                    <li id="header-link4"><a href="Shop_login.php"><i class="fas fa-store-alt"></i>商户服务</a></li>
                 </ul>
             </div>
         </div>
