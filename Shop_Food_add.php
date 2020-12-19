@@ -1,9 +1,11 @@
-<?php include "include/Shop_header.php"?>
-<style type="text/css">
-    img {
-        width: 150px;
-    }
-</style>
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("菜品发布-商户中心");
+?>
+
+<div class="shop-content">
+
 <?php
     if (isset($_FILES['upfile'])) {
         // echo "<pre>";
@@ -66,6 +68,7 @@
     }
 
 ?>
+
 <form  enctype="multipart/form-data" method="post" action="Shop_Food_add.php">
     <!-- <input type="hidden" name="MAX_FILE_SIZE" value="90000"><!-- 限制表单大小需要在file表单向之前 -->
     <input type="file" name="upfile">
@@ -76,7 +79,7 @@
 
 <?php
 //1、接受表单数据
-if(!empty($_POST['sub'])) {
+if(!empty($_POST['sub']) && !empty($_POST['fname']) && !empty($_POST['price'])) {
 	$sid=$_POST['sid'];
 	$fname=$_POST['fname'];
 	$soldnum=$_POST['soldnum'];
@@ -101,6 +104,9 @@ if(!empty($_POST['sub'])) {
 	}
 	else
 		echo"插入失败";
+}
+else {
+    echo "填内容了憨憨！!";
 }
 
 
@@ -127,4 +133,5 @@ if(!empty($newfile)){
 			菜品简介：<textarea name="fdes"></textarea><br>
 			价格：<input type="text" name="price"><br>
 			<input type="submit" name="sub" value="添加菜品">
-		</form>
+        </form>
+        </div>

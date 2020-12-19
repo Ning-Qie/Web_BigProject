@@ -1,5 +1,5 @@
-<!-- <a href="index.php">回到首页</a> -->
-<?php include "include/head.php"?>
+<?php include "include/Shop_header.php"?>
+<?php isshoplogin(); ?>
 
 <?php
     @session_start();

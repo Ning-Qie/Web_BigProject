@@ -1,10 +1,8 @@
-<?php include "include/Shop_header.php"?>
-
-<style type="text/css">
-	img {
-		width: 150px;
-	}
-</style>
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("首页-商户中心");
+?>
 <?php
 	// 1.连接数据库
 	require "conn.php";
@@ -13,15 +11,9 @@
 		$username=$_SESSION['valid_shop'];
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-</head>
+
 <body>
-	<!-- 前往订单 -->
-	<h2><a href=Shop_order.php>前往订单</a></h2>
+	<div class="shop-content">
 
 	<!-- 菜品搜索 -->
 	<h2>菜品搜索</h2>
@@ -75,7 +67,12 @@
 	<p>菜品名称：
 		<?php echo $row['fname'];?> |销售量：
 		<?php echo $row['soldnum'];?> |销售状态：
-		<?php echo $row['onsale'];?>
+		<?php
+		if($row['onsale']==1)
+			echo "正在热销";
+		else
+			echo "已经售罄";
+		?>
 	</p>
 	<p>菜品简介:
 		<?php echo $row['fdes'];?> |菜品图片：<img src="<?php echo $row['fpic'];?>"> |菜品价格：
@@ -104,6 +101,7 @@
 		?>
 		| <a href=Shop_show.php?page=<?php echo $totalPage ?>>尾页</a>
 	</p>
+	</div>
 </body>
 </html>
 

@@ -1,3 +1,8 @@
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("删除菜品-商户中心");
+?>
 <?php
 if(!empty($_GET)) {
 	$id=$_GET['fid'];

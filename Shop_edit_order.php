@@ -1,3 +1,8 @@
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("修改订单-商户中心");
+?>
 <?php
 if(!empty($_GET)) {
 	$oid=$_GET['oid'];
@@ -10,16 +15,25 @@ if(!empty($_GET)) {
 }
 ?>
 
+
+
+<div class="shop-content">
 <form method="post" action="Shop_edit_order.php">
-	订单id：<input type="text" name="oid" value="<?php echo $row['oid']; ?>"><br>
+	订单id：<?php echo $row['oid']; ?>
+	<input type="hidden" name="oid" value="<?php echo $row['oid']; ?>"><br>
 	<input type="hidden" name="cid" value="<?php echo $row['cid']; ?>">
 	<input type="hidden" name="sid" value="<?php echo $row['sid']; ?>">
 	<input type="hidden" name="fid" value="<?php echo $row['fid']; ?>">
 	<input type="hidden" name="otime" value="<?php echo $row['otime']; ?>">
 	<input type="hidden" name="fnum" value="<?php echo $row['fnum']; ?>">
-	订单状态：<input type="text" name="ostate" value="<?php echo $row['ostate']; ?>"><br>
+	订单状态：
+	<input type="radio" name="ostate" value="2">已接单
+	<input type="radio" name="ostate" value="3">已完成<br>
 	<input type="submit" name="sub" value="提交修改">
 </form>
+</div>
+
+
 <?php
 if(!empty($_POST['sub'])) {
 	$oid=$_POST['oid'];

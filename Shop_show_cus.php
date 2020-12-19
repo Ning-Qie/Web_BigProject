@@ -1,3 +1,8 @@
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("订餐者信息-商户中心");
+?>
 <?php
 	// 1.连接数据库
 	require "conn.php";
@@ -6,13 +11,8 @@
 		$username=$_SESSION['valid_shop'];
 		?>
 
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
 		<body>
+			<div class="shop-content">
 		<h2>显示订餐者信息</h2>
 
 		<?php
@@ -32,9 +32,9 @@
 		?>
 	<p>顾客id：<?php echo $row['cid'];?>	|性别：<?php echo $row['sex'];?>	|电话：	<?php echo $row['ctel'];?></p>
 	<p>顾客用户名:<?php echo $row['cname'];?> 	|订餐地址：<?php echo $row['caddr'];?></p>
-	<p><a href=order.php>返回订单</a> </p>
+	<p><a href=Shop_order.php>返回订单</a> </p>
 	<hr>
-
+	</div>
 	<?php
 	}
 	?>
@@ -46,4 +46,3 @@
 	else
 		echo "没有权限";
 ?>
-	

@@ -1,3 +1,8 @@
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("编辑菜品-商户中心");
+?>
 <?php
 if(!empty($_GET)) {
 	$fid=$_GET['fid'];
@@ -9,6 +14,7 @@ if(!empty($_GET)) {
 }
 ?>
 
+<div class="shop-content">
 <form method="post" action="Shop_Food_edit.php">
 	菜品名称：<input type="text" name="fname" value="<?php echo $row['fname']; ?>"><br>
 	<input type="hidden" name="fid" value="<?php echo $row['fid']; ?>">
@@ -20,7 +26,7 @@ if(!empty($_GET)) {
 	价格：<input type="text" name="price" value="<?php echo $row['price']; ?>"><br>
 	<input type="submit" name="sub" value="提交修改">
 </form>
-
+</div>
 <?php
 if(!empty($_POST['sub'])) {
 	$fid=$_POST['fid'];

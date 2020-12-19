@@ -1,4 +1,8 @@
-<?php include "include/Shop_header.php"?>
+<?php 
+include "include/Shop_header.php";
+isshoplogin();
+prt_title("订单管理-商户中心");
+?>
 	<?php
 	// 1.连接数据库
 	require "conn.php";
@@ -14,6 +18,7 @@
 			<title></title>
 		</head>
 		<body>
+			<div class="shop-content">
         <!-- 订单搜索 -->
 		<h2>订单号搜索</h2>
 		<form method="post" action="Shop_order.php">
@@ -25,11 +30,11 @@
 		if(!empty($_POST['sear'])) {
 			$search=$_POST['search'];
 			// 2.编写执行sql语句
-			$sql="select * from `orders` where `sid`=$username and (`oid` like '%$search%') order by `ostate`,`otime` asc";
+			$sql="select * from `orders` where `sid`=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) and (`oid` like '%$search%') order by `ostate`,`otime` asc";
 			// echo $sql;
 		}
 		else
-            $sql="SELECT * FROM `orders` WHERE sid=$username order by `ostate`,`otime` asc";
+            $sql="SELECT * FROM `orders` WHERE sid=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) order by `ostate`,`otime` asc";
 ?>
 
 		<h2>显示订单</h2>
@@ -62,7 +67,17 @@
 
 		?>
 	<h4>订单编号：<?php echo $row['oid'];?></h4>
-	<p>顾客id：<?php echo $row['cid'];?>	|菜品id：<?php echo $row['fid'];?>	|订单状态：	<?php echo $row['ostate'];?></p>
+	<p>顾客id：<?php echo $row['cid'];?>	|菜品id：<?php echo $row['fid'];?>	|订单状态：	
+	<?php 
+		if($row['ostate']==0)
+			echo "尚未支付";
+		else if($row['ostate']==1)
+			echo "已取消订单";
+		else if($row['ostate']==2)
+			echo "已接单";
+		else if($row['ostate']==3)
+			echo "已完成";
+	?></p>
 	<p>订单创建时间:<?php echo $row['otime'];?> 	|购买数量：<?php echo $row['fnum'];?></p>
 	<p><a href=Shop_edit_order.php?oid=<?php echo $row['oid']; ?>>编辑订单状态</a> | <a href=Shop_show_cus.php?cid=<?php echo $row['cid']; ?>>查看订餐者信息</a></p>
 	<hr>
@@ -83,6 +98,7 @@
 		}
 		?>
 		| <a href=Shop_order.php?page=<?php echo $totalPage ?>>尾页</a></p>
+		</div>
 	</body>
 	</html>
 
