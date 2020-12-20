@@ -182,7 +182,8 @@ input, select, textarea {
 }
 .minsu-ls-view .minsu-item {
     float: left;
-    margin: auto;
+    margin-right: auto;
+    padding-left: 100px;
 }
 .minsu-ls-view .minsu-item .product-card-header {
     position: relative;
@@ -580,4 +581,8 @@ img {
 
 .Trolley-check{
     -webkit-appearance: radio;
+}
+
+.ning-content{
+    margin-top: 100px;
 }

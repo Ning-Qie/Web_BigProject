@@ -15,14 +15,43 @@ function go_somepage(t1, url) {
   }
 
   timer = setTimeout(redirect(), time * 1000); //跳转
-} // 注销确认
+} // 用户注销确认
 
 
-function logout_confirm() {
+function account_logout_confirm() {
   var r = confirm("确认注销？");
 
   if (r == true) {
     location.href = "account_logout.php";
+  }
+} //商家注销确认
+
+
+function shop_logout_confirm() {
+  var r = confirm("确认注销？");
+
+  if (r == true) {
+    location.href = "shop_logout.php";
+  }
+} //管理员注销确认
+
+
+function manage_logout_confirm() {
+  var r = confirm("确认注销？");
+
+  if (r == true) {
+    location.href = "manage_logout.php";
+  }
+} //管理员注销确认
+
+
+function account_info_change_confirm() {
+  var r = confirm("确认修改用户信息？");
+
+  if (r == true) {
+    return true;
+  } else {
+    return false;
   }
 } //<!-- 全选 -->
 
@@ -37,7 +66,7 @@ function checkAll() {
   }
 
   calculateMoney();
-} //<!-- 统计金额 -->
+} //<!-- 全选判断-->
 
 
 function calculateMoney() {
@@ -51,9 +80,8 @@ function calculateMoney() {
       allchecked.checked = false;
     } else {
       //如果是选中状态，计数器+1
-      count++;
-      console.log("count++：", count);
-      console.log("cl", check.length);
+      count++; // console.log("count++：",count);
+      // console.log("cl",check.length);
     } //判断是否都是选中状态/如果是则自动选中全选按钮
 
 
@@ -68,7 +96,9 @@ function calculateMoney() {
 
   for (var i = 0; i < check.length; i++) {
     if (check[i].checked) {
-      sum += parseFloat(check[i].value);
+      // console.log(check[i].getAttribute('price_sum'));
+      // document.getElementsByName("check").getAttribute
+      sum += parseFloat(check[i].getAttribute('price_sum'));
     }
   }
 

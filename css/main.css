@@ -413,7 +413,7 @@ button {
     height: 300px;
     /* background-color: antiquewhite; */
     text-align: center;
-    background: url(../index-search-img.jpg);
+    background: url(../image/base_img/index-search-img.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -432,4 +432,7 @@ button {
 /* 首页展示区域 */
 .foods-content{
     margin: 0 auto;
+}
+.food-page{
+    text-align: center;
 }

@@ -9,7 +9,6 @@ function islogin()
 {
     @session_start();
     if (isset($_SESSION['valid_user'])) {
-        $cid = $_SESSION['valid_user'];
         // echo $cid;
     }
     //如果不存在，则登录
@@ -21,15 +20,14 @@ function islogin()
 
 <!-- 餐车del -->
 <?php
-function del()
+function Trolleydel()
 {
     require('conn.php');
     $id = $_GET['id'];
-    $sql = "delete from orders where fid='{$id}'";
+    @session_start();
+    $cid = $_SESSION['valid_user'];
+    $sql = "delete from orders where fid='{$id}' and cid='{$cid}'";
     $result = $conn->query($sql);
-
-    $sql = "delete * from food where fid='{$id}'";
-    $result1 = $conn->query($sql);
     header("location:Trolley.php");
 }
 ?>
@@ -37,16 +35,18 @@ function del()
 
 <!-- 餐车add -->
 <?php
-function add()
+function Trolleyadd()
 {
     require('conn.php');
     $id = $_GET['id'];
-    $sql = "select * from orders where fid='{$id}'";
+    @session_start();
+    $cid = $_SESSION['valid_user'];
+    $sql = "select * from orders where fid='{$id}' and cid='{$cid}'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $r = $row['fnum'] + 1;
 
-    $sql = "update orders set fnum='{$r}' where fid='{$id}'";
+    $sql = "update orders set fnum='{$r}' where fid='{$id}' and cid='{$cid}'";
     $result1 = $conn->query($sql);
     header("location:Trolley.php");
 }
@@ -54,20 +54,22 @@ function add()
 
 <!-- 餐车sub -->
 <?php
-function sub()
+function Trolleysub()
 {
     $id = $_GET['id'];
+    @session_start();
+    $cid = $_SESSION['valid_user'];
     require('conn.php');
-    $sql = "select * from orders where fid='{$id}'";
+    $sql = "select * from orders where fid='{$id}' and cid='{$cid}'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     if ($row['fnum'] > 1) {
         $r = $row['fnum'] - 1;
-        $sql = "update orders set fnum='{$r}' where fid='{$id}'";
+        $sql = "update orders set fnum='{$r}' where fid='{$id}' and cid='{$cid}'";
         $result = $conn->query($sql);
     } else {
-        require('del.php');
-        del();
+        require('Trolleydel.php');
+        Trolleydel();
     }
     header("location:Trolley.php");
 }
@@ -107,4 +109,46 @@ function isshoplogin(){
             $conn->close();
         }
     }
+?>
+
+
+<?php
+function ismanagelogin(){
+    @session_start();
+    if(!isset($_SESSION['valid_manage'])){
+        echo "<script>go_somepage(1,'manage_login.php');</script>";
+    }
+}
+?>
+
+
+<!-- 菜品添加至餐车add -->
+<?php
+function Add_to_Trolley()
+{
+    require('conn.php');
+    $fid = $_GET['fid'];
+    $sid = $_GET['sid'];
+    @session_start();
+    $cid = $_SESSION['valid_user'];
+    $d=date('Y-m-d H:i:s',time());//下单时间
+    $t=time();
+    // echo "SELECT * from orders where cid='{$cid}' and fid='{$fid}' and ostate=0";
+    $r = "SELECT * from orders where cid='{$cid}' and fid='{$fid}' and ostate=0";
+    $re=$conn->query($r);
+    $num = $re->num_rows;
+    echo $num;
+    if($num==0){
+        echo "INSERT INTO `orders`(`cid`, `sid`, `fid`, `ostate`, `otime`, `fnum`, `oid`) VALUES ('$cid','$sid','$fid',0,'$d',1,'0_$t')";
+        $sql = "INSERT INTO `orders`(`cid`, `sid`, `fid`, `ostate`, `otime`, `fnum`, `oid`) VALUES ('$cid','$sid','$fid',0,'$d',1,'0_$t')";
+        $addTrolley=$conn->query($sql);
+        if($addTrolley) {
+            $conn->close();
+            header("location:Trolley.php");
+        }
+        else
+            echo"<br>修改失败";
+    }
+    else header("location:Trolley.php");
+}
 ?>

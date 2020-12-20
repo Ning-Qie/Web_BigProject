@@ -129,7 +129,7 @@ if(!empty($newfile)){
 			<input type="hidden" name="sid" value="<?php @session_start(); $username=$_SESSION['valid_shop']; echo $username; ?>">
 			<input type="hidden" name="soldnum" value=0>
 			<input type="hidden" name="fpic" value="<?php echo $fpic; ?>">
-			销售状态：(0-停止销售，1-正在销售)<input type="text" name="onsale" ><br>
+			<input type="hidden" name="onsale" value=1><br>
 			菜品简介：<textarea name="fdes"></textarea><br>
 			价格：<input type="text" name="price"><br>
 			<input type="submit" name="sub" value="添加菜品">

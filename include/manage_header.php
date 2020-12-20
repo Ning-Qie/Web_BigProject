@@ -10,22 +10,22 @@
 </head>
 <header id="header" class="header bg-white">
     <div class="navbar-container">
-        <a href="Shop_show.php" id="header-site-title" class="navbar-logo">
-            商户中心
+        <a href="manage.php" id="header-site-title" class="navbar-logo">
+            管理中心
         </a>
         <div class="navbar-menu">
             <?php
                 @session_start();
-                if(isset($_SESSION['valid_shop'])){
-                    echo "<a href='javascript:shop_logout_confirm()'>注销</a>";
+                if(isset($_SESSION['valid_manage'])){
+                    echo "<a href='javascript:manage_logout_confirm()'>注销</a>";
                 }
                 else{
-                    echo "<a href='Shop_login.php'>登录</a>";
+                    echo "<a href='manage_login.php'>登录</a>";
                 }
             ?>
-            <a href="Shop_show.php">菜品管理</a>
-            <a href="Shop_Food_add.php">发布菜品</a>
-            <a href="Shop_order.php">订单管理</a>
+            <a href="manage_cust.php">管理用户</a>
+            <a href="manage_shop.php">管理商家</a>
+            <a href="manage_recom.php">菜品推荐</a>
             <a href="index.php">外卖平台</a>
         </div>
     </div>

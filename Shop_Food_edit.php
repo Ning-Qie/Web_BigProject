@@ -21,7 +21,9 @@ if(!empty($_GET)) {
 	<input type="hidden" name="sid" value="<?php echo $row['sid']; ?>">
 	<input type="hidden" name="soldnum" value="<?php echo $row['soldnum']; ?>">
 	<input type="hidden" name="fpic" value="<?php echo $row['fpic']; ?>">
-	销售状态：(0-停止销售，1-正在销售)<input type="text" name="onsale" value="<?php echo $row['onsale']; ?>"><br>
+	销售状态：(0-停止销售，1-正在销售)
+	<input type="radio" name="onsale" value="0" <?php if($row['onsale']=='0') echo "checked='checked'"?> >停止销售
+	<input type="radio" name="onsale" value="1" <?php if($row['onsale']=='1') echo "checked='checked'"?> >正在销售<br>
 	菜品简介：<textarea name="fdes"><?php echo $row['fdes']; ?></textarea><br>
 	价格：<input type="text" name="price" value="<?php echo $row['price']; ?>"><br>
 	<input type="submit" name="sub" value="提交修改">

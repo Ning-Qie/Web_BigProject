@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "include/Shop_header.php";
 isshoplogin();
 prt_title("修改订单-商户中心");
@@ -8,7 +8,7 @@ if(!empty($_GET)) {
 	$oid=$_GET['oid'];
 	require"conn.php";
 
-	$sql="select * from orders where oid=$oid";
+	$sql="select * from orders where oid='$oid'";
 	// echo $sql;
 	$result=$conn->query($sql);
 	$row=$result->fetch_assoc();
@@ -27,8 +27,8 @@ if(!empty($_GET)) {
 	<input type="hidden" name="otime" value="<?php echo $row['otime']; ?>">
 	<input type="hidden" name="fnum" value="<?php echo $row['fnum']; ?>">
 	订单状态：
-	<input type="radio" name="ostate" value="2">已接单
-	<input type="radio" name="ostate" value="3">已完成<br>
+	<input type="radio" name="ostate" value="2" <?php if($row['ostate']==2) echo "checked='checked'"?>>已接单
+	<input type="radio" name="ostate" value="3" <?php if($row['ostate']==3) echo "checked='checked'"?>>已完成<br>
 	<input type="submit" name="sub" value="提交修改">
 </form>
 </div>
@@ -46,7 +46,7 @@ if(!empty($_POST['sub'])) {
 
 	require"conn.php";
 	//"UPDATE `orders` SET `cid`='$cid',`sid`='$sid',`fid`='$fid',`ostate`='$ostate',`otime`='$otime',`fnum`='$fnum',`oid`='$oid' WHERE `oid`=$oid";
-	$sql="UPDATE `orders` SET `cid`='$cid',`sid`='$sid',`fid`='$fid',`ostate`='$ostate',`otime`='$otime',`fnum`='$fnum',`oid`='$oid' WHERE `oid`=$oid";
+	$sql="UPDATE `orders` SET `cid`='$cid',`sid`='$sid',`ostate`='$ostate',`otime`='$otime',`oid`='$oid' WHERE `oid`='$oid'";
 	echo"$sql";
 	$is=$conn->query($sql);
 	if($is) {

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "include/Shop_header.php";
 isshoplogin();
 prt_title("订单管理-商户中心");
@@ -30,11 +30,11 @@ prt_title("订单管理-商户中心");
 		if(!empty($_POST['sear'])) {
 			$search=$_POST['search'];
 			// 2.编写执行sql语句
-			$sql="select * from `orders` where `sid`=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) and (`oid` like '%$search%') order by `ostate`,`otime` asc";
+			$sql="select distinct oid,cid,sid,ostate,otime from `orders` where `sid`=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) and (`oid` like '%$search%') order by `ostate`,`otime` asc";
 			// echo $sql;
 		}
 		else
-            $sql="SELECT * FROM `orders` WHERE sid=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) order by `ostate`,`otime` asc";
+            $sql="SELECT distinct oid,cid,sid,ostate,otime FROM `orders` WHERE sid=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) order by `ostate`,`otime` asc";
 ?>
 
 		<h2>显示订单</h2>
@@ -64,22 +64,32 @@ prt_title("订单管理-商户中心");
 
 		// 3.遍历结果集，取出每一行记录
 		while($row=$result->fetch_assoc()) {
+?>
+			<h4>订单编号：<?php echo $row['oid'];?></h4>
+			<p>顾客id：<?php echo $row['cid'];?>|订单状态：
+			<?php
+				if($row['ostate']==0)
+					echo "尚未支付";
+				else if($row['ostate']==1)
+					echo "已取消订单";
+				else if($row['ostate']==2)
+					echo "已接单";
+				else if($row['ostate']==3)
+					echo "已完成";
 
-		?>
-	<h4>订单编号：<?php echo $row['oid'];?></h4>
-	<p>顾客id：<?php echo $row['cid'];?>	|菜品id：<?php echo $row['fid'];?>	|订单状态：	
-	<?php 
-		if($row['ostate']==0)
-			echo "尚未支付";
-		else if($row['ostate']==1)
-			echo "已取消订单";
-		else if($row['ostate']==2)
-			echo "已接单";
-		else if($row['ostate']==3)
-			echo "已完成";
-	?></p>
-	<p>订单创建时间:<?php echo $row['otime'];?> 	|购买数量：<?php echo $row['fnum'];?></p>
-	<p><a href=Shop_edit_order.php?oid=<?php echo $row['oid']; ?>>编辑订单状态</a> | <a href=Shop_show_cus.php?cid=<?php echo $row['cid']; ?>>查看订餐者信息</a></p>
+			//显示菜品
+			$condition=$row['oid'];
+			$sql1="select * from `orders` where `sid` = $username and (`oid` = '$condition')";
+			$result1 = $conn->query($sql1);
+			// echo($sql1);
+			while($row1=$result1->fetch_assoc()) {
+				?>
+				菜品id：<?php echo $row1['fid'];?>|购买数量：<?php echo $row1['fnum'];?></p>
+		<?php } ?>
+
+	</p>
+	<p>订单创建时间:<?php echo $row['otime'];?>
+	<p><a href=<?php if($row['ostate']<>1){echo "Shop_edit_order.php?oid=".$row['oid'];}else{echo "javascript:";} ?>>编辑订单状态</a> | <a href=Shop_show_cus.php?cid=<?php echo $row['cid']; ?>>查看订餐者信息</a></p>
 	<hr>
 
 	<?php

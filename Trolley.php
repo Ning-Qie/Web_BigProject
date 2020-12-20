@@ -13,13 +13,17 @@
         //连接数据库
         require('conn.php');
         // if(isset($_SESSION['valid_user'])){
-        $sql="select * from orders where ostate=0";
+        @session_start();
+        $cid = $_SESSION['valid_user'];
+        // echo "select * from orders where ostate=0 and cid='{$cid}'";
+        $sql="select * from orders where ostate=0 and cid='{$cid}'";
         $result=$conn->query($sql);
         if(!empty($result)){
             ?>
             <div class="main-content archive-page clearfix">
                 <div class="post-lists">
                     <div class="post-lists-body">
+                        <form action="Trolley_new_orders.php" method="post">
                         <?php
                         while ($row = $result->fetch_assoc()) {
                             $fid=$row['fid'];
@@ -33,7 +37,8 @@
                                         <div class="item-label" style="height: 150px;">
                                             <div class="item-title">
                                                 <!-- 勾选框 -->
-                                                <input type="checkbox" name="check" class="Trolley-check" value="<?php echo $row1['price']*$row['fnum'];?>">
+                                                <input type="checkbox" name="check" class="Trolley-check" value="<?php echo $row['oid']?>" price_sum="<?php echo $row1['price']*$row['fnum']; ?>">
+                                                <input type="hidden" name="fid[]" value="<?php echo $row1['fid'];?>">
                                                 商家号：<?php echo $row1['sid'];?>
                                                 <a>
                                                     <!-- 菜品名称 -->
@@ -44,7 +49,7 @@
                                             </div>
                                             <div class="item-meta clearfix">
                                                 <div class="item-meta-ico bg-ico-{{post.icon}}"
-                                                    style="background: url(<?php echo "./image/food/".$row1['fpic']; ?>) no-repeat;background-size: cover;width: 100px;height: 100px;">
+                                                    style="background: url(<?php echo $row1['fpic']; ?>) no-repeat;background-size: cover;background-position: center;width: 100px;height: 100px;">
                                                 </div>
                                                 <div class="item-meta-date" style="padding-top: 80px;">
                                                     数量：
@@ -79,7 +84,8 @@
                         <div class="info-text">
                             <input id="all1" type="checkbox" name="all" class="Trolley-check" onclick="checkAll()">全部选择
                             <span id="sumMoney">合计金额：</span>
-                            <a href="orders.php">支付</a><br>
+                            <input type="submit" name="sub" value="支付"></a><br>
+                            </form>
                         </div>
                     </div>
                 </div>
