@@ -8,6 +8,14 @@
     <link type="text/css" rel="stylesheet" href="css/shop.css">
     <script type="text/javascript" src="js/main.js"></script>
 </head>
+<style>
+    .navbar-container a{
+        color:black;
+    }
+    a{
+        color:darkseagreen;
+    }
+</style>
 <header id="header" class="header bg-white">
     <div class="navbar-container">
         <a href="manage.php" id="header-site-title" class="navbar-logo">

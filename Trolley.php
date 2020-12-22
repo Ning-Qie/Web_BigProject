@@ -23,7 +23,7 @@
             <div class="main-content archive-page clearfix">
                 <div class="post-lists">
                     <div class="post-lists-body">
-                        <form action="Trolley_new_orders.php" method="post">
+                        <form action="Trolley_orders_pay.php" method="post" onsubmit="return Trolley_pay_confirm()">
                         <?php
                         while ($row = $result->fetch_assoc()) {
                             $fid=$row['fid'];
@@ -34,18 +34,19 @@
                             ?>
                                 <div class="post-list-item" style="width: 90%;">
                                     <div class="post-list-item-container">
+                                        <input type="checkbox" name="check[]" class="Trolley-check" value="<?php echo $row['oid']?>" price_sum="<?php echo $row1['price']*$row['fnum']; ?>">
                                         <div class="item-label" style="height: 150px;">
                                             <div class="item-title">
                                                 <!-- 勾选框 -->
-                                                <input type="checkbox" name="check" class="Trolley-check" value="<?php echo $row['oid']?>" price_sum="<?php echo $row1['price']*$row['fnum']; ?>">
+                                                <!-- <input type="checkbox" name="check[]" class="Trolley-check" value="<?php echo $row['oid']?>" price_sum="<?php echo $row1['price']*$row['fnum']; ?>"> -->
                                                 <input type="hidden" name="fid[]" value="<?php echo $row1['fid'];?>">
-                                                商家号：<?php echo $row1['sid'];?>
-                                                <a>
-                                                    <!-- 菜品名称 -->
+                                                <!-- 商家号：<?php echo $row1['sid'];?> -->
+                                                <!-- 菜品名称 -->
+                                                <a style="font-weight: bold;font-size: larger;display: unset;" href="Food_info.php?fid=<?php echo $row1['fid'] ?>" target="_blank">
                                                     <?php echo $row1['fname']; ?>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <font style="color: #e65353;font-size: inherit;font-weight: 900;"><?php echo "￥".$row1['price']*$row['fnum']; ?></font>
                                                 </a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <font style="color: #e65353;font-size: inherit;font-weight: 900;"><?php echo "￥".$row1['price']*$row['fnum']; ?></font>
                                             </div>
                                             <div class="item-meta clearfix">
                                                 <div class="item-meta-ico bg-ico-{{post.icon}}"
@@ -83,8 +84,8 @@
                     <div class="meta-copyright-info">
                         <div class="info-text">
                             <input id="all1" type="checkbox" name="all" class="Trolley-check" onclick="checkAll()">全部选择
-                            <span id="sumMoney">合计金额：</span>
-                            <input type="submit" name="sub" value="支付"></a><br>
+                            <span id="sumMoney">总金额：￥0</span><br>
+                            <input type="submit" name="sub" value="支付" class="pay-button"></a><br>
                             </form>
                         </div>
                     </div>

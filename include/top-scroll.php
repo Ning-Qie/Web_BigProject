@@ -8,7 +8,7 @@
         document.getElementById("backTop").setAttribute("style","display:none;");
         window.addEventListener("scroll", backtop_change);
         function backtop_change(){
-            var toph = document.documentElement.scrollTop;
+            var toph = document.documentElement.scrollTop || document.body.scrollTop;
             // console.log(toph);
             if(toph<50) document.getElementById("backTop").setAttribute("style","display:none;");
             else document.getElementById("backTop").setAttribute("style","display:block;");

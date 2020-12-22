@@ -1,3 +1,7 @@
+*{
+    font-family: cursive;
+    font-size: initial;
+}
 body {
     display: flex;
     min-height: 100vh;
@@ -8,8 +12,16 @@ body {
 main {
     flex: 1 0 auto;
     margin: 0 auto;
-    max-width: 1190px;
+    max-width: 95%;
+    min-width: 90%;
     margin-bottom: 150px;
+}
+
+a{
+    color:#3e978b;
+}
+a:hover{
+    color:cornflowerblue;
 }
 
 /* 美团header样式 */
@@ -83,7 +95,8 @@ main {
 .csr-header .header-content #right ul li a:link,
 .csr-header .header-content #right ul li a:visited {
     text-decoration: none;
-    color: #333
+    color: #333;
+    font-family: emoji;
 }
 
 .csr-header .header-content #right ul li a {
@@ -114,7 +127,8 @@ main {
 }
 
 .csr-header.csr-header-transparent .header-content #right ul li a {
-    color: #fff
+    color: #fff;
+    font-family: emoji;
 }
 
 .active {
@@ -188,7 +202,7 @@ a {
 input,
 textarea {
     outline: none;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     border-radius: 0
 }
 
@@ -289,6 +303,7 @@ button {
     background-color: white;
     width: -webkit-fill-available !important;
     height: fit-content !important;
+    height:auto!important;
     padding: 15px 0;
     border: 1px solid #1111 !important;
 }
@@ -308,6 +323,7 @@ button {
 }
 
 .login-wrap {
+    border-radius: 10px;
     height: 510px;
     padding-left: 818px;
     /* background: url(../image/base_img/ashley-byrd-Pv6t-Y3u6uY-unsplash.jpg) 96px 47px no-repeat #f7f7f7; */

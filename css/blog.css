@@ -4,7 +4,7 @@
             .main-container{padding: 80px 0 0;}
             .glist{margin: 0 auto;width: 80%;} */
 @charset "UTF-8";
-
+/* 
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -22,7 +22,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box
-}
+} */
 
 html {
     overflow-x: hidden;
@@ -271,7 +271,7 @@ table thead tr {
     background-color: #f7f7f7
 }
 
-button,
+/* button,
 input,
 select,
 textarea {
@@ -279,9 +279,9 @@ textarea {
     font-size: 13px;
     line-height: 1.6;
     resize: none
-}
+} */
 
-input:focus:invalid,
+/* input:focus:invalid,
 input:required:invalid,
 textarea:focus:invalid,
 textarea:required:invalid {
@@ -306,7 +306,7 @@ textarea::-moz-placeholder {
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
     color: #5f5f5f
-}
+} */
 
 .clearfix:after,
 .clearfix:before {
@@ -1187,7 +1187,7 @@ textarea:-ms-input-placeholder {
     margin: 20px auto
 }
 
-.post-content input.text {
+/* .post-content input.text {
     display: inline-block;
     padding: 5px 10px;
     color: #5f5f5f;
@@ -1195,7 +1195,7 @@ textarea:-ms-input-placeholder {
     border-radius: 3px;
     outline: 0;
     background-color: #fff
-}
+} */
 
 .post-content input.submit {
     display: inline-block;

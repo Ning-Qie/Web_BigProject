@@ -3,6 +3,7 @@ include "include/manage_header.php";
 ismanagelogin();
 prt_title("管理商家");
 ?>
+<div style="padding:200px;">
 <?php
 $conn = new mysqli('localhost', 'root', '', 'waimai_db');
 $conn->query("set names utf8");
@@ -24,3 +25,4 @@ function delete($cid){
     $rest=$conn->query($sql);
 }
 ?>
+</div>

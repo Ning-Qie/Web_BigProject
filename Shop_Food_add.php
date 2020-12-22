@@ -123,15 +123,48 @@ if(!empty($newfile)){
 }
 ?>
 
-<h2>添加菜品</h2>
-		<form method="post" action="Shop_Food_add.php">
-			菜品名称：<input type="text" name="fname"><br>
-			<input type="hidden" name="sid" value="<?php @session_start(); $username=$_SESSION['valid_shop']; echo $username; ?>">
-			<input type="hidden" name="soldnum" value=0>
-			<input type="hidden" name="fpic" value="<?php echo $fpic; ?>">
-			<input type="hidden" name="onsale" value=1><br>
-			菜品简介：<textarea name="fdes"></textarea><br>
-			价格：<input type="text" name="price"><br>
-			<input type="submit" name="sub" value="添加菜品">
-        </form>
+
+<div class="security_content">
+    <div class="security-right">
+        <div data-v-4cbad597="" class="security-right-title"><span data-v-4cbad597="" class="security-right-title-icon"></span> <span data-v-4cbad597="" class="security-right-title-text">登录</span>
         </div>
+        <div class="user-setting-warp">
+            <div>
+                <form class="el-form clearfix" method="post" action="Shop_Food_add.php">
+                    <input type="hidden" name="sid" value="<?php @session_start(); $username=$_SESSION['valid_shop']; echo $username; ?>">
+                    <input type="hidden" name="soldnum" value=0>
+                    <input type="hidden" name="fpic" value="<?php echo $fpic; ?>">
+                    <input type="hidden" name="onsale" value=1><br>
+                    <div class="el-form-item user-nick-name"><label class="el-form-item__label">菜品名:</label>
+                        <div class="el-form-item__content">
+                            <div class="el-input">
+                                <input autocomplete="off" placeholder="菜品名称" type="text" rows="2" maxlength="16" validateevent="true" class="el-input__inner" name="fname">
+                            </div> <span class="nick-name-not"> </span>
+                        </div>
+                    </div>
+                    <div class="el-form-item user-nick-name"><label class="el-form-item__label">价格:</label>
+                        <div class="el-form-item__content">
+                            <div class="el-input">
+                                <input autocomplete="off" placeholder="价格" rows="2" maxlength="16" validateevent="true" class="el-input__inner" type="text" name="price">
+                            </div> <span class="nick-name-not"> </span>
+                        </div>
+                    </div>
+                    <div class="el-form-item user-my-sign"><label class="el-form-item__label">菜品简介:</label>
+                        <div class="el-form-item__content">
+                            <div class="el-textarea"><textarea name="fdes" placeholder="菜品简介" type="textarea" rows="2"
+                                    autocomplete="off" validateevent="true" class="el-textarea__inner"></textarea></div>
+                        </div>
+                    </div>
+                    <div class="el-form-item user-my-btn">
+                        <div class="el-form-item__content">
+                            <div class="padding-dom"></div>
+                            <div class="user-my-btn-warp">
+                                <input type="submit" name="sub" value="添加菜品" class="el-button el-button--primary">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

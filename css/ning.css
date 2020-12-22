@@ -126,7 +126,7 @@ input, select, textarea {
 .search-bnt-panel .search-btn {
     display: inline-block;
     padding: 10px;
-    height: 36px;
+    height: 12px;
     line-height: 16px;
     width: 100px;
     background-color: #8db596;
@@ -174,6 +174,7 @@ input, select, textarea {
     border-bottom-right-radius: 4px;
     background: #fff;
     border-radius: 10px;
+    min-height:1500px;
 }
 .minsu-ls-view .products {
     display: flex;
@@ -184,6 +185,7 @@ input, select, textarea {
     float: left;
     margin-right: auto;
     padding-left: 100px;
+    /* padding-left:10%; */
 }
 .minsu-ls-view .minsu-item .product-card-header {
     position: relative;
@@ -201,7 +203,7 @@ input, select, textarea {
     cursor: pointer;
     position: relative;
 }
-img {
+.head-img {
     border: 2px solid #FFFFFF;
     height: 48px;
     width: 48px;
@@ -210,7 +212,6 @@ img {
     right: 15px;
     z-index: 9;
     border-radius: 40px;
-    background-image: url(https://p0.meituan.net/mmc/35ad1f9….png);
     background-size: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -267,10 +268,12 @@ img {
     box-shadow: 0 4px 10px 10px rgba(0, 0, 0, .05);
 }
 .footer {
-    position: relative;
+    position: fixed;
+    width: -webkit-fill-available;
+    top: 83%;
     z-index: 1;
     margin-top: 0;
-    padding-bottom: 20px;
+    padding-bottom: 100px;
     background-color: #fff;
 }
 .bg-white {
@@ -489,7 +492,7 @@ img {
 .post-list-item-container .item-label {
     position: relative;
     height: 130px;
-    padding: 25px 20px 40px;
+    padding: 10px 20px 40px;
     background-color: #fff
 }
 
@@ -521,7 +524,7 @@ img {
 }
 
 .post-list-item-container .item-label .item-meta .item-meta-date {
-    font-size: 12px;
+    font-size: initial;
     position: relative;
     float: left;
     padding-top: 9px;
@@ -580,9 +583,114 @@ img {
 }
 
 .Trolley-check{
-    -webkit-appearance: radio;
+    margin-left: 20px;
+    margin-top: 22px;
 }
 
 .ning-content{
     margin-top: 100px;
+}
+
+
+
+.food-main{
+    margin-top: 200px;
+}
+.food-info-content{
+    /* margin-top: 200px; */
+    display: contents;
+}
+.food-info-content{
+    color:dimgray;
+}
+.food-info-box{
+    margin: 0 auto;
+    min-width: 60%;
+    max-width: 70%;
+    min-height: 400px;
+    background-color:#fff;
+    border-radius: 10px;
+    padding: 30px 20px;
+}
+.food-info-box .food-name{
+    font-size: 26px;
+    line-height: 37px;
+    color:#313131;
+    font-family: cursive;
+}
+.food-info-box .food-base-info{
+    margin-top: 5px;
+}
+.food-info-left{
+    float: left;
+    width:65%;
+    padding-right: 10px;
+}
+.food-info-right{
+    float: left;
+    width: 35%;
+    text-align: center;
+    margin-top: 60px;
+}
+.food-info-right img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.food-price{
+    color:#FF6600;
+    font-size: initial;
+}
+.food-base-info{
+    color:#cea064;
+    font-size: x-small;
+}
+.food-infos{
+    margin-top: 10px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 0 11px;
+    min-height: 120px;
+}
+.shop-info{
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 0 20px;
+}
+.shop-logo-img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 5%;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 支付按钮 */
+.pay-button{
+    margin: 10px;
+    background-color: cadetblue;
+    border-radius: 5px;
+    color: aliceblue;
+    width: 60px;
+    height: 28px;
+}
+
+/* 订单页页数按钮 */
+.page-num-box{
+    text-align: center;
+    height: 49px;
+    margin-top: 30px;
 }

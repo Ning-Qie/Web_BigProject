@@ -18,23 +18,33 @@ prt_title("订单管理-商户中心");
 			<title></title>
 		</head>
 		<body>
+				<!-- 订单搜索 -->
+				<div class="search" style="height: 200px;">
+					<div calss="search-box">
+						<div class="search-bar ">
+							<span class="search-container clearfix"><span>
+							<form method="post" action="Shop_order.php">
+									<input id="J-search-input" name="search" class="J-search-input" type="text"
+										placeholder="根据订单号搜索" autocomplete="off">
+									<span class="search-bnt-panel">
+										<input type="submit" name="sear" value="搜索" class="search-btn J-search-btn">
+									</span>
+									<p class="hot-search J-hot-search"> </p>
+							</form>
+						</div>
+					</div>
+				</div>
 			<div class="shop-content">
-        <!-- 订单搜索 -->
-		<h2>订单号搜索</h2>
-		<form method="post" action="Shop_order.php">
-		<input type="text" name="search"><br>
-		<input type="submit" name="sear" value="搜索修改">
-		</form>
 
         <?php
 		if(!empty($_POST['sear'])) {
 			$search=$_POST['search'];
 			// 2.编写执行sql语句
-			$sql="select distinct oid,cid,sid,ostate,otime from `orders` where `sid`=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) and (`oid` like '%$search%') order by `ostate`,`otime` asc";
+			$sql="select distinct oid,cid,sid,ostate,otime from `orders` where `sid`=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) and (`oid` like '%$search%') order by `otime` desc,`ostate` asc";
 			// echo $sql;
 		}
 		else
-            $sql="SELECT distinct oid,cid,sid,ostate,otime FROM `orders` WHERE sid=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) order by `ostate`,`otime` asc";
+            $sql="SELECT distinct oid,cid,sid,ostate,otime FROM `orders` WHERE sid=$username and (`ostate`=1 or `ostate`=2 or `ostate`=3) order by `otime` desc,`ostate` asc";
 ?>
 
 		<h2>显示订单</h2>
@@ -79,17 +89,22 @@ prt_title("订单管理-商户中心");
 
 			//显示菜品
 			$condition=$row['oid'];
-			$sql1="select * from `orders` where `sid` = $username and (`oid` = '$condition')";
+			$sql1="select * from orders,food where orders.sid = $username and (`oid` = '$condition') and food.fid=orders.fid order by `otime` asc";
+			// echo $sql1;
 			$result1 = $conn->query($sql1);
 			// echo($sql1);
 			while($row1=$result1->fetch_assoc()) {
 				?>
-				菜品id：<?php echo $row1['fid'];?>|购买数量：<?php echo $row1['fnum'];?></p>
+				<p>菜品名称：<?php echo $row1['fname'];?>|购买数量：<?php echo $row1['fnum'];?></p>
 		<?php } ?>
 
 	</p>
 	<p>订单创建时间:<?php echo $row['otime'];?>
-	<p><a href=<?php if($row['ostate']<>1){echo "Shop_edit_order.php?oid=".$row['oid'];}else{echo "javascript:";} ?>>编辑订单状态</a> | <a href=Shop_show_cus.php?cid=<?php echo $row['cid']; ?>>查看订餐者信息</a></p>
+	<p>
+		<?php if($row['ostate']==2){ ?>
+			<a href=Shop_edit_order.php?oid=<?php echo $row['oid']; ?> >编辑订单状态</a> | 
+		<?php } ?>
+			<a href=Shop_show_cus.php?cid=<?php echo $row['cid']; ?>>查看订餐者信息</a></p>
 	<hr>
 
 	<?php

@@ -4,8 +4,11 @@
     <?php include "include/variable.php"?>
     <?php include "include/func.php"?>
     <link rel="icon" href="<?php echo $site_favicon ?>">
+    <link type="text/css" rel="stylesheet" href="css/ning.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
     <link type="text/css" rel="stylesheet" href="css/blog.css">
     <link type="text/css" rel="stylesheet" href="css/shop.css">
+    <link type="text/css" rel="stylesheet" href="css/bilibili_user_info.css">
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <header id="header" class="header bg-white">

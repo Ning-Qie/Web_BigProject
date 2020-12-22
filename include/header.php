@@ -1,14 +1,3 @@
-<!-- <header>
-    Dropdown Structure
-    <ul id="个人中心" class="dropdown-content">
-        <li><a href="#!">个人信息</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">我的订单</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">我的餐车</a></li>
-    </ul>
-</header> -->
-
 <header>
     <div class="csr-header">
         <div class="header-content">
@@ -31,11 +20,12 @@
                         <li id="header-link-3"><a href="#!"><i class="fas fa-info-circle"></i>个人中心</a></li>
                         <div id="sub-link-list-3" class="sub-link-list">
                             <li class="sub-link"><a href="account_info_show.php">个人信息</a></li>
-                            <li class="sub-link"><a href="Trolley_orders_info.php">我的订单</a></li>
+                            <li class="sub-link"><a href="Trolley_order_show.php">我的订单</a></li>
                             <li class="sub-link"><a href="Trolley.php">我的餐车</a></li>
                         </div>
                     </div>
                     <li id="header-link4"><a href="Shop_login.php" target="_blank"><i class="fas fa-store-alt"></i>商户服务</a></li>
+                    <li id="header-link5"><a href="manage.php" target="_blank"><i class="fas fa-user-cog"></i>管理</a></li>
                 </ul>
             </div>
         </div>

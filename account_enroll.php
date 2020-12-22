@@ -1,6 +1,12 @@
 
 
 <?php
+        include "include/head.php";
+        prt_title("注册中");
+        include "include/header.php";
+?>
+<div style="margin-top:200px;text-align:center;">
+<?php
     //if (isset($_POST['userid']) and isset($_POST['password']) and isset($_POST['cname']) and isset($_POST['sex']) and isset($_POST['tel']) and isset($_POST['addr'])) {
         $userid = $_POST['userid'];
         $password = $_POST['password'];
@@ -27,7 +33,8 @@
     if ($s->num_rows==0 and strlen($userid)==12 and $password!=null and $sex!=null and $tel!=null and $cname!=null and $addr!=null) {
         $sql = "INSERT INTO customer (cid,cpwd,sex,ctel,cname,caddr) VALUES ('$userid', '$password', '$sex','$tel','$cname','$addr')";
         if (mysqli_query($conn, $sql)) {
-            echo "账号注册成功<br>";
+            // echo "账号注册成功<br>";
+            echo "<script>register_finish();</script>";
         }
         else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -48,5 +55,8 @@
         echo "错误提示：未输入地址！<br>";
         if($tel==null)
         echo "错误提示：未输入电话！<br>";
+        echo "<script>register_error();</script>";
+        echo "<script>go_somepage(5, account_login.php);</script>";
     }
 ?>
+</div>

@@ -13,14 +13,23 @@ prt_title("首页-商户中心");
 
 
 <body>
-	<div class="shop-content">
-
 	<!-- 菜品搜索 -->
-	<h2>菜品搜索</h2>
-	<form method="post" action="Shop_show.php">
-		<input type="text" name="search"><br>
-		<input type="submit" name="sear" value="搜索">
-	</form>
+	<div class="search" style="height: 200px;">
+		<div calss="search-box">
+			<div class="search-bar ">
+				<span class="search-container clearfix"><span>
+				<form method="post" action="Shop_show.php">
+						<input id="J-search-input" name="search" class="J-search-input" type="text"
+							placeholder="根据菜品名、描述搜索" autocomplete="off">
+						<span class="search-bnt-panel">
+							<input type="submit" name="sear" value="搜索" class="search-btn J-search-btn">
+						</span>
+						<p class="hot-search J-hot-search"> </p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="shop-content">
 	<?php
 		if(!empty($_POST['sear'])) {
 			$search=$_POST['search'];
@@ -39,9 +48,8 @@ prt_title("首页-商户中心");
 		// 执行查询语句，并将资源型结果集存储在变量中
 
 		//分页
-		$pageSize=3;//每页显示条数
 		$rows=$result->num_rows;//取出记录的总条数
-		$totalPage = ceil($rows/$pageSize);//总页数
+		$totalPage = ceil($rows/$Shop_show_pagesize);//总页数
 		if(!empty($_GET['page'])){
 			$page=$_GET['page'];
 		}
@@ -51,8 +59,8 @@ prt_title("首页-商户中心");
 		if ($page>$totalPage){
 			$page=$totalPage;
 		}//超出最大页限制
-		$start=($page-1)*$pageSize;
-		$fenye=" LIMIT $start,$pageSize";
+		$start=($page-1)*$Shop_show_pagesize;
+		$fenye=" LIMIT $start,$Shop_show_pagesize";
 		$sql=$sql.$fenye;
 		//echo $sql;
 		$result = $conn->query($sql);

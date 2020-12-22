@@ -28,8 +28,11 @@ $result=$conn->query($sql);
         <input type="submit" value="注册">
         <br>
     </form>
-    <p>商家信息：</p>
-</div>
+    </div>
+<div style="padding:200px;">
+<p>商家信息：</p>
+
+
 <?php
 while ($row = $result->fetch_assoc()) {
     echo "商家名称：".$row['sname']."<br>";
@@ -43,3 +46,4 @@ while ($row = $result->fetch_assoc()) {
     <?php
 }
 ?>
+</div>
